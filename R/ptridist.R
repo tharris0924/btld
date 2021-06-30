@@ -6,7 +6,7 @@
 #' @param theta mode parameter (between 0 and 1)
 #'
 #' @return df of random variates
-#'
+#' @import Ryacas
 #' @export
 #' @examples
 #'
