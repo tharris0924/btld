@@ -1,0 +1,25 @@
+Package: btld
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: c(
+        person(given = "Alta",
+           family = "de Waal",
+           role = c("aut"),
+           email = "alta.dewaal@up.ac.za",
+           comment = c(ORCID = "0000-0001-8121-6249")),
+        person(given = "Tristan",
+               family = "Harris",
+               role = c("aut", "cre"),
+               email = "th240498@gmail.com",
+               comment = c(ORCID = "0000-0002-4848-760X")),
+        person(given = "Jocelyn",
+                   family = "Mazarura",
+                   role = c("aut"),
+                   email = "jocelyn.mazarura@up.ac.za",
+                   comment = c(ORCID = "0000-0003-4598-0834")))
+Description: This package contains functions to generate the pdf, cdf and icdfs of random variables following triangular andbimodal triangular-linked random variables. These functions are used to generate random variables from the multivariate case using a gaussian copula.
+License: MIT+file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
