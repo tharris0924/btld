@@ -3,3 +3,5 @@
 export(btld_pdf)
 export(qbltd)
 export(rbltd)
+export(rtridist)
+export(tridist_cdf)
