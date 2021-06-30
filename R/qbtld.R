@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #' qbltd(x=runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
-qbltd <- function (x, theta1, theta2, alpha1, alpha2){
+qbtld <- function (x, theta1, theta2, alpha1, alpha2){
   alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)
   print(alpha0)
   u_df <- data.frame(x=x)

@@ -1,6 +1,6 @@
 #' rbltd
 #'
-#' random number generator for the bltd
+#' Random number generator for the bltd
 #'
 #' @param size size of sample to generate.
 #' @param theta1 Mode paramter 1.

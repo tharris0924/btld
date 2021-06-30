@@ -1,4 +1,4 @@
-#' tridist_cdf
+#' ptridist
 #'
 #' random number generator for the triangular distribution
 #'
@@ -6,14 +6,13 @@
 #' @param theta mode parameter (between 0 and 1)
 #'
 #' @return df of random variates
-#' @import Ryacas
 #' @export
 #' @examples
 #'
 #' tridist_cdf(runif(1000),0.3)
 #' tridist_cdf(runif(1000), 0.7)
 
-tridist_cdf <- function (values, theta){
+ptridist <- function (values, theta){
   u_df <- data.frame(unif=values)
   lower_df <- u_df[u_df$unif<theta,]
   upper_df <- u_df[u_df$unif>theta,]
