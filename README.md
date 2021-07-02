@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of btld is to have functions to generate the pdfs, cdfs and icdfs of the trinagular and bimodal triangular linked distributions.
+The goal of btld is to have functions to generate the pdfs, cdfs and icdfs of the triangular and bimodal triangular linked distributions (btld).
 These functions are used to generate the multivariate distribution which uses a Gaussian copula. Functions to do that may be included later. 
 
 ## Installation
@@ -12,12 +12,12 @@ These functions are used to generate the multivariate distribution which uses a 
 You can install the released version of btld from [GitHub](https://github.com/tharris0924/btld) with:
 
 ``` r
-devtools::githubinstall("tharris0924/btld")
+devtools::install_github("tharris0924/btld")
 ```
 
 ## Example
 
-This is a basic example which shows you how to generate valeus from a btld as well as determine the pdf of the distribution. A histogram overlay of the pdf and kde is shown. 
+This is a basic example which shows you how to generate values from a btld as well as determine the pdf of the distribution. A histogram overlay of the pdf and kde is shown. 
 
 ``` r
 library(btld)
