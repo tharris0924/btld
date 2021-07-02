@@ -24,5 +24,5 @@ Vector of cumulative probabilities from the BTLD
 Cumulative density function for the BTLD
 }
 \examples{
-rbltd(size=1000, alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
+pbtld(runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
 }

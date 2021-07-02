@@ -24,5 +24,5 @@ The icdf of \code{x}.
 Quantile function (icdf) for the bltd
 }
 \examples{
-qbltd(x=runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
+qbtld(x=runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
 }

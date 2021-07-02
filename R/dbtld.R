@@ -30,6 +30,5 @@ dbtld <- function (xvalues, alpha1, alpha2, theta1, theta2){
   upper_pdf<-(alpha2*(1-upper_df))/(1-theta2)
 
   joined_pdf <- c(lower_pdf,middle_pdf,upper_pdf)
-  pdf <- data.frame(Inputs=inputs, functionalValues=joined_pdf)
-  return(pdf)
+  return(joined_pdf)
 }

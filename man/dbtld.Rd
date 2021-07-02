@@ -25,6 +25,5 @@ Probability density function of the BTLD
 }
 \examples{
 
-vals<-stats::runif(1000)
-pdf <- dbtld(vals,  theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3)
+dbtld(runif(1000),  theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3)
 }

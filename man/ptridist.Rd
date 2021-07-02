@@ -19,6 +19,6 @@ random number generator for the triangular distribution
 }
 \examples{
 
-tridist_cdf(runif(1000),0.3)
-tridist_cdf(runif(1000), 0.7)
+ptridist(runif(1000),0.3)
+ptridist(runif(1000), 0.7)
 }
