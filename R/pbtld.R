@@ -9,9 +9,10 @@
 #' @param alpha2 scale parameter 2
 #' @return Vector of cumulative probabilities from the BTLD
 #'
+#' @importFrom stats runif
 #' @export
 #' @examples
-#' rbltd(size=1000, alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
+#' pbltd(runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
 pbtld <- function (vec, alpha1, alpha2, theta1, theta2){
   u<-vec
   alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)

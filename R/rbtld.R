@@ -11,8 +11,8 @@
 #'
 #' @export
 #' @examples
-#' rbltd(size=1000, alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
-rbltd <- function (size, theta1, theta2, alpha1, alpha2){
+#' rbtld(size=1000, alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
+rbtld <- function (size, theta1, theta2, alpha1, alpha2){
 
   u<-runif(n=size)
   alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)

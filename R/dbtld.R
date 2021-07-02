@@ -10,11 +10,11 @@
 #'
 #' @return df of pdf function values
 #'
+#' @importFrom stats runif
 #' @export
 #' @examples
-#' library('stats')
-#' vals<-runif(1000)
-#'pdf <- btld_pdf(vals,  theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3)
+#'
+#' dbtld(runif(1000),  theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3)
 dbtld <- function (xvalues, alpha1, alpha2, theta1, theta2){
   alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)
   df <- data.frame(unif=xvalues)

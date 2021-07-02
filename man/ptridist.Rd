@@ -7,9 +7,9 @@
 ptridist(values, theta)
 }
 \arguments{
-\item{theta}{mode parameter (between 0 and 1)}
+\item{values}{input vector}
 
-\item{size}{size of sample}
+\item{theta}{mode parameter (between 0 and 1)}
 }
 \value{
 df of random variates

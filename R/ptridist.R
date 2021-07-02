@@ -2,15 +2,15 @@
 #'
 #' random number generator for the triangular distribution
 #'
-#' @param size size of sample
+#' @param values input vector
 #' @param theta mode parameter (between 0 and 1)
 #'
 #' @return df of random variates
 #' @export
 #' @examples
 #'
-#' tridist_cdf(runif(1000),0.3)
-#' tridist_cdf(runif(1000), 0.7)
+#' ptridist(runif(1000),0.3)
+#' ptridist(runif(1000), 0.7)
 
 ptridist <- function (values, theta){
   u_df <- data.frame(unif=values)
