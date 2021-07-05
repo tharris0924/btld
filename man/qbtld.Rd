@@ -2,27 +2,25 @@
 % Please edit documentation in R/qbtld.R
 \name{qbtld}
 \alias{qbtld}
-\title{Quantile function (icdf) for the bltd}
+\title{quantile function for the btld}
 \usage{
-qbtld(x, theta1, theta2, alpha1, alpha2)
+qbtld(x, theta, alpha)
 }
 \arguments{
 \item{x}{A vector of inputs.}
 
-\item{theta1}{Mode paramter 1.}
+\item{theta}{Mode vector}
 
-\item{theta2}{mode parameter 2.}
-
-\item{alpha1}{scale parameter 1}
-
-\item{alpha2}{scale parameter 2}
+\item{alpha}{Scale vector}
 }
 \value{
 The icdf of \code{x}.
 }
 \description{
-Quantile function (icdf) for the bltd
+Quantile function (icdf) for the btld
 }
 \examples{
-qbtld(x=runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
+alpha<-c(5,1)
+theta<-c(0.3,0.7)
+qbtld(x=runif(1000), alpha, theta)
 }

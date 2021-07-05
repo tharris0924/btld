@@ -1,16 +1,23 @@
-#' Quantile function (icdf) for the bltd
+#' @title quantile function for the btld
+#'
+#' @description
+#' Quantile function (icdf) for the btld
 #'
 #' @param x A vector of inputs.
-#' @param theta1 Mode paramter 1.
-#' @param theta2 mode parameter 2.
-#' @param alpha1 scale parameter 1
-#' @param alpha2 scale parameter 2
+#' @param theta Mode vector
+#' @param alpha Scale vector
 #' @return The icdf of \code{x}.
 #'
 #' @export
 #' @examples
-#' qbtld(x=runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
-qbtld <- function (x, theta1, theta2, alpha1, alpha2){
+#' alpha<-c(5,1)
+#' theta<-c(0.3,0.7)
+#' qbtld(x=runif(1000), alpha, theta)
+qbtld <- function (x, theta, alpha){
+  theta1<-theta[1]
+  theta2<-theta[2]
+  alpha1<-alpha[1]
+  alpha2<-alpha[2]
   alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)
   u_df <- data.frame(x=x)
 
@@ -25,8 +32,5 @@ qbtld <- function (x, theta1, theta2, alpha1, alpha2){
   upper_df<-1-sqrt((2*(1-upper_df)*(1-theta2))/alpha2)
 
   df <- c(lower_df,middle_df,upper_df)
-  qs <- matrix(df)
-  return(qs)
-
+  return(df)
 }
-
