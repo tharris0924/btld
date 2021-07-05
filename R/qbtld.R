@@ -12,7 +12,6 @@
 #' qbtld(x=runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
 qbtld <- function (x, theta1, theta2, alpha1, alpha2){
   alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)
-  print(alpha0)
   u_df <- data.frame(x=x)
 
   # specify valid bounds
@@ -26,7 +25,7 @@ qbtld <- function (x, theta1, theta2, alpha1, alpha2){
   upper_df<-1-sqrt((2*(1-upper_df)*(1-theta2))/alpha2)
 
   df <- c(lower_df,middle_df,upper_df)
-  qs <- data.frame(GenRvs=df)
+  qs <- matrix(df)
   return(qs)
 
 }
