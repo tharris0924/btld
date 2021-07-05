@@ -37,4 +37,32 @@ par(new=T)
 plot(vals,pdfs,type = "l", axes = F,ann = F, col = "blue")
 legend(0,3,c("KDE", "PDF"),col = c("red","blue"),lty = 1)
 ```
+## Example 2
 
+This example shows the calculation of goodness of fit for the btld taking values from the above example
+```r
+cdf <- btld_cdf(vals,  theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3,input = T)
+n<-nrow(cdf)
+dens <- as.numeric(cdf$Denisty)
+sdens <- sort(dens)
+sdens
+sortedCDF <- sort(as.numeric(cdf$Density))
+i<-t(1:n)
+Dminus <- sdens-(i-1)/n
+Dplus <- i/n - sdens
+D <- max(c(Dminus,Dplus))
+D*sqrt(1000) >= 1.63 # if false then do not reject null
+
+ecdf <- rep(1/nrow(cdf),nrow(cdf))
+ecdf<- cumsum(ecdf)
+plot(vals,sdens,type = "l", lty="dashed",col="Blue", main = "Generated CDF vs Emperical CDF", xlab = "X", ylab="Cumulative Density")
+par(new=T)
+plot(vals,ecdf, col="Red", type="l", ann = F, axes = F)
+lab<-paste0("Kolmogorov's D: ", num2str(D))
+text(x=0.1,y=1,labels =  lab, font = 3)
+
+legend(0.8, 0.1, c("Generated CDF", "Emperical CDF"), col = c("Blue", "Red"),
+       lty = c("dashed", "solid"),
+       bg = "gray90")
+
+```
