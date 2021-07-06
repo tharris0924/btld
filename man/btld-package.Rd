@@ -6,7 +6,7 @@
 \alias{btld-package}
 \title{btld: Triangular and Bimodal Triangular Linked Distributions}
 \description{
-This package contains functions to generate and calculate the pdf, cdf and icdfs of random variables following triangular and bimodal triangular-linked random variables. These functions are used to generate random variablesfrom the multivariate case using a Gaussian copula.
+This package contains functions to generate and calculate the pdf, cdf and icdfs of random variables following triangular and bimodal triangular-linked random variables. These functions are used to generate random variables from the multivariate case using a Gaussian copula.
 }
 \author{
 \strong{Maintainer}: Tristan Harris \email{th240498@gmail.com} (\href{https://orcid.org/0000-0002-4848-760X}{ORCID})
