@@ -4,18 +4,14 @@
 \alias{pbtld}
 \title{pbtld}
 \usage{
-pbtld(vec, alpha1, alpha2, theta1, theta2)
+pbtld(vec, alpha, theta)
 }
 \arguments{
 \item{vec}{input values}
 
-\item{alpha1}{scale parameter 1}
+\item{alpha}{scale vector parameter 1}
 
-\item{alpha2}{scale parameter 2}
-
-\item{theta1}{Mode paramter 1.}
-
-\item{theta2}{mode parameter 2.}
+\item{theta}{Mode vector paramter 1.}
 }
 \value{
 Vector of cumulative probabilities from the BTLD
@@ -24,5 +20,5 @@ Vector of cumulative probabilities from the BTLD
 Cumulative density function for the BTLD
 }
 \examples{
-pbtld(runif(1000), alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
+pbtld(runif(1000), alpha = c(5,1), theta =c(0.3, 0.7))
 }

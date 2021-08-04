@@ -3,17 +3,18 @@
 #' Random number generator for the bltd
 #'
 #' @param size size of sample to generate.
-#' @param alpha1 scale parameter 1
-#' @param alpha2 scale parameter 2
-#' @param theta1 Mode paramter 1.
-#' @param theta2 mode parameter 2.
+#' @param alpha scale vector parameter
+#' @param theta Mode vector paramter
 #' @return The random variates from a bltd
 #'
 #' @export
 #' @examples
-#' rbtld(size=1000, alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
-rbtld <- function (size, alpha1, alpha2, theta1,theta2){
-
+#' rbtld(size=1000, alpha = c(5,1), theta =c(0.3, 0.7))
+rbtld <- function (size, alpha,theta){
+  alpha1<-alpha[1]
+  alpha2<-alpha[2]
+  theta1<-theta[1]
+  theta2<-theta[2]
   u<-runif(n=size)
   alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)
   u_df <- data.frame(unif=u)

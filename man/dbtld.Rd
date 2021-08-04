@@ -4,18 +4,14 @@
 \alias{dbtld}
 \title{dbtld}
 \usage{
-dbtld(xvalues, alpha1, alpha2, theta1, theta2)
+dbtld(xvalues, alpha, theta)
 }
 \arguments{
 \item{xvalues}{input values between 0 and 1}
 
-\item{alpha1}{scale parameter}
+\item{alpha}{scale vector parameter}
 
-\item{alpha2}{scale parameter}
-
-\item{theta1}{scale parameter}
-
-\item{theta2}{scale parameter}
+\item{theta}{Mode vector paramter}
 }
 \value{
 df of pdf function values
@@ -25,5 +21,5 @@ Probability density function of the BTLD
 }
 \examples{
 
-dbtld(runif(1000),  theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3)
+dbtld(runif(1000),  alpha = c(5,1), theta =c(0.3, 0.7))
 }

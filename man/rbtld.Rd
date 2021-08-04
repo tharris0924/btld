@@ -4,18 +4,14 @@
 \alias{rbtld}
 \title{rbtld}
 \usage{
-rbtld(size, alpha1, alpha2, theta1, theta2)
+rbtld(size, alpha, theta)
 }
 \arguments{
 \item{size}{size of sample to generate.}
 
-\item{alpha1}{scale parameter 1}
+\item{alpha}{scale vector parameter}
 
-\item{alpha2}{scale parameter 2}
-
-\item{theta1}{Mode paramter 1.}
-
-\item{theta2}{mode parameter 2.}
+\item{theta}{Mode vector paramter}
 }
 \value{
 The random variates from a bltd
@@ -24,5 +20,5 @@ The random variates from a bltd
 Random number generator for the bltd
 }
 \examples{
-rbtld(size=1000, alpha1 = 5, alpha2 = 1, theta1=0.3, theta2 = 0.7)
+rbtld(size=1000, alpha = c(5,1), theta =c(0.3, 0.7))
 }
