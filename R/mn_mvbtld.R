@@ -9,7 +9,7 @@
 #' @param theta mode matrix. Must be d-by-2 dimensions.
 #' @param sigma value on the off diagonal for Gaussian covariance matrix used in copula generation.
 #' @param dim number of dimensions of copula. Must be same dimensions as the mode and scale parameters.
-#' @return matrix n by d+1 random variates from the compound MNM-MVBTLD.
+#' @return matrix n by d+1 random variates from the compound MN-MVBTLD.
 #'
 #' @importFrom stats rmultinom
 #' @export
