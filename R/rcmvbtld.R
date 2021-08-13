@@ -16,9 +16,9 @@
 #' @examples
 #' alpha<-matrix(c(3,3,3,3),nrow=2,ncol=2, byrow=TRUE)
 #' theta<-matrix(c(0.3,0.7,0.3,0.7),ncol=2,nrow=2,byrow=TRUE)
-#' crmvbtld(1000, alpha=alpha, theta=theta, sigma=0.5,dim=2)
+#' rcmvbtld(1000, alpha=alpha, theta=theta, sigma=0.5,dim=2)
 
-crmvbtld<-function (n,theta,alpha,sigma,dim,...){
+rcmvbtld<-function (n,theta,alpha,sigma,dim,...){
   y<-rmvbtld(10000,theta,alpha,sigma,dim) # generate sufficiently many datapoints since not all observations across
   # dimensions are compositional
   comp <- 1-rowSums(y)
