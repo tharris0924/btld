@@ -19,7 +19,7 @@
 #' rcmvbtld(1000, alpha=alpha, theta=theta, sigma=0.5,dim=2)
 
 rcmvbtld<-function (n,theta,alpha,sigma,dim,...){
-  y<-rmvbtld(10000,theta,alpha,sigma,dim) # generate sufficiently many datapoints since not all observations across
+  y<-rmvbtld(10000,theta,alpha,sigma,dim,...) # generate sufficiently many datapoints since not all observations across
   # dimensions are compositional
   comp <- 1-rowSums(y)
   compdf <- data.frame(y, comp)
