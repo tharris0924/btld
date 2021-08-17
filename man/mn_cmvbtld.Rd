@@ -4,7 +4,7 @@
 \alias{mn_cmvbtld}
 \title{Random generation from the compound Multinomial-MVBTLD.}
 \usage{
-mn_cmvbtld(n, size, alpha, theta, sigma, dim)
+mn_cmvbtld(n, size, alpha, theta, sigma, dim, ...)
 }
 \arguments{
 \item{n}{size of dataset desired}
@@ -18,6 +18,8 @@ mn_cmvbtld(n, size, alpha, theta, sigma, dim)
 \item{sigma}{value on the off diagonal for Gaussian covariance matrix used in copula generation.}
 
 \item{dim}{number of dimensions of copula. Must be same dimensions as the mode and scale parameters.}
+
+\item{...}{kws for \code{normalCopula} and \code{rCopula}.}
 }
 \value{
 matrix n by d+1 random variates from the compound MN-MVBTLD.

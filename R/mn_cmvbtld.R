@@ -10,6 +10,7 @@
 #' @param theta mode matrix. Must be d-by-2 dimensions.
 #' @param sigma value on the off diagonal for Gaussian covariance matrix used in copula generation.
 #' @param dim number of dimensions of copula. Must be same dimensions as the mode and scale parameters.
+#' @param ... kws for \code{normalCopula} and \code{rCopula}.
 #' @return matrix n by d+1 random variates from the compound MN-MVBTLD.
 #'
 #' @importFrom stats rmultinom dmultinom
@@ -19,11 +20,11 @@
 #' theta<-matrix(c(0.3,0.7,0.3,0.7),ncol=2,nrow=2,byrow=TRUE)
 #' mn_cmvbtld(100, size=10, alpha=alpha, theta=theta, sigma=0.5,dim=2)
 
-mn_cmvbtld<-function(n,size,alpha,theta,sigma,dim){
+mn_cmvbtld<-function(n,size,alpha,theta,sigma,dim,...){
   df <- matrix(nrow=n,ncol=dim+1)
   dens <- matrix(nrow=n,ncol=1)
   for(i in seq_len(n)){
-    p <- rcmvbtld(1, alpha = alpha,theta = theta,sigma=sigma,dim = dim)
+    p <- rcmvbtld(1, alpha = alpha,theta = theta,sigma=sigma,dim = dim,...)
     df[i,] <- t(rmultinom(n=1,size = size,prob=p))
     dens[i,]<-dmultinom(t(df[1,]), size=size, prob=as.numeric(p))
   }
