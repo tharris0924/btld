@@ -19,7 +19,7 @@
 
 rmvbtld<-function (n,theta,alpha,sigma,dim,...){
   norm.cop <- normalCopula(sigma, dim,...) # intialize copula function
-  u <- rCopula(n, norm.cop,...)
+  u <- rCopula(n, norm.cop)
   # generate 100 rvs from the cop
   # getSigma(norm.cop)
   if (nrow(alpha)<ncol(alpha)){
