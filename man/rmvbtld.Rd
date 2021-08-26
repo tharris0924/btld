@@ -4,7 +4,7 @@
 \alias{rmvbtld}
 \title{Random generation from MVBTLD}
 \usage{
-rmvbtld(n, theta, alpha, sigma, dim, ...)
+rmvbtld(n, theta, alpha, sigma, dim, normalize = FALSE, ...)
 }
 \arguments{
 \item{n}{size of dataset desired}
@@ -16,6 +16,8 @@ rmvbtld(n, theta, alpha, sigma, dim, ...)
 \item{sigma}{value on the off diagonal for Gaussian covariance matrix used in copula generation. Can be vector.}
 
 \item{dim}{number of dimensions}
+
+\item{normalize}{default is FALSE. If true normalize across dimensions so that each observation is a probability space and thus sums to 1.}
 
 \item{...}{kws for \code{normalCopula} and \code{rCopula}}
 }

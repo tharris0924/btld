@@ -4,7 +4,7 @@
 \alias{mn_cmvbtld}
 \title{Random generation from the compound Multinomial-MVBTLD.}
 \usage{
-mn_cmvbtld(n, size, alpha, theta, sigma, dim, ...)
+mn_cmvbtld(n, size, alpha, theta, sigma, dim, base, ...)
 }
 \arguments{
 \item{n}{size of dataset desired}
@@ -19,6 +19,8 @@ mn_cmvbtld(n, size, alpha, theta, sigma, dim, ...)
 
 \item{dim}{number of dimensions of copula. Must be same dimensions as the mode and scale parameters.}
 
+\item{base}{the base value to use in the softmax function}
+
 \item{...}{kws for \code{normalCopula} and \code{rCopula}.}
 }
 \value{
@@ -30,5 +32,5 @@ This function is a random generator for length n (d)-dimensional MVBTLD random v
 \examples{
 alpha<-matrix(c(3,3,3,3),nrow=2,ncol=2, byrow=TRUE)
 theta<-matrix(c(0.3,0.7,0.3,0.7),ncol=2,nrow=2,byrow=TRUE)
-mn_cmvbtld(100, size=10, alpha=alpha, theta=theta, sigma=0.5,dim=2)
+mn_cmvbtld(100, size=10, alpha=alpha, theta=theta, sigma=0.5,dim=2,base=1000)
 }

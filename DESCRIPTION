@@ -19,7 +19,7 @@ Authors@R: c(
                    comment = c(ORCID = "0000-0003-4598-0834")))
 Description: This package contains functions to generate and calculate the pdf, cdf and icdfs of random variables following triangular and bimodal triangular-linked random variables. These functions are used to generate random variables from the multivariate case using a Gaussian copula.
 Depends: R (>= 4.0.0)
-Imports: copula, stats
+Imports: copula, stats, fields
 Suggests: testthat (>= 3.0.0), devtools, roxygen2
 Config/testthat/edition: 3
 License: MIT + file LICENSE

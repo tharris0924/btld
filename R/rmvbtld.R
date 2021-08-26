@@ -7,6 +7,7 @@
 #' @param theta mode matrix. 2 Must be d-by-2 dimensions.
 #' @param sigma value on the off diagonal for Gaussian covariance matrix used in copula generation. Can be vector.
 #' @param dim number of dimensions
+#' @param normalize default is FALSE. If true normalize across dimensions so that each observation is a probability space and thus sums to 1.
 #' @param ... kws for \code{normalCopula} and \code{rCopula}
 #' @return matrix n by d random variates from the MVBTLD
 #'
@@ -17,7 +18,8 @@
 #' theta<-matrix(c(0.3,0.7,0.3,0.7),ncol=2,nrow=2,byrow=TRUE)
 #' rmvbtld(1000, alpha=alpha, theta=theta, sigma=0.5,dim=2)
 
-rmvbtld<-function (n,theta,alpha,sigma,dim,...){
+rmvbtld<-function (n,theta,alpha,sigma,dim,normalize=FALSE,...){
+
   norm.cop <- normalCopula(sigma, dim,...) # intialize copula function
   u <- rCopula(n, norm.cop)
   # generate 100 rvs from the cop
