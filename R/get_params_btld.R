@@ -12,13 +12,13 @@
 #' get_params_btld(matrix(daa))
 #'
 get_params_btld<-function (data){
-  modes<-unique(knn_modeseeking(data)[,3])
+  modes<-sort(unique(knn_modeseeking(data)[,3]))
   if(length(modes)>2){
     modes<-modes[2:3]
   }
   ecdf<-empcdf(data)
   probs<-unique(ecdf[ecdf[,1]== modes,])
-  scales<-btld_scales(sort(modes),sort(probs[,2]))
+  scales<-btld_scales(modes,sort(probs[,2]))
   params<-c(modes,scales)
   return(params)
 }
