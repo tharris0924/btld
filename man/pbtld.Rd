@@ -4,10 +4,10 @@
 \alias{pbtld}
 \title{pbtld}
 \usage{
-pbtld(vec, alpha, theta)
+pbtld(xvalues, alpha, theta)
 }
 \arguments{
-\item{vec}{input values}
+\item{xvalues}{input values}
 
 \item{alpha}{scale vector parameter 1}
 

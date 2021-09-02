@@ -2,34 +2,24 @@
 #'
 #' Cumulative density function for the BTLD
 #'
-#' @param vec input values
+#' @param xvalues input values
 #' @param alpha scale vector parameter 1
 #' @param theta Mode vector paramter 1.
 
 #' @return Vector of cumulative probabilities from the BTLD
 #'
-#' @importFrom stats runif
 #' @export
 #' @examples
 #' pbtld(runif(1000), alpha = c(5,1), theta =c(0.3, 0.7))
-pbtld <- function (vec, alpha,theta){
-  alpha1<-alpha[1]
-  alpha2<-alpha[2]
-  theta1<-theta[1]
-  theta2<-theta[2]
-  u<-vec
-  alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)
-  u_df <- data.frame(unif=u)
-
-  # specify valid bounds
-  lower_df <- u_df[u_df$unif<=theta1,]
-  middle_df<-u_df[theta1<u_df$unif & u_df$unif<=theta2,]
-  upper_df <- u_df[u_df$unif>theta2,]
-  # generate values
-  lower_cdf<-alpha1*lower_df^2/(2*theta1)
-  middle_cdf<-alpha0*(middle_df-theta1)+alpha1*theta1/2
-  upper_cdf<-1-(alpha2*(1-upper_df)^2)/(2*(1-theta2))
-
-  cdf <- c(lower_cdf,middle_cdf,upper_cdf)
+pbtld <- function (xvalues, alpha,theta){
+  alpha0<-(1-(alpha[1]*theta[1]/2) -(alpha[2]*(1-theta[2]))/2)/(theta[2]-theta[1])
+  r <- which(xvalues<theta[1])
+  f1<-alpha[1]*(xvalues[r])^2/(2*theta[1])
+  r<-which(xvalues>theta[2])
+  f3<-1-(alpha[2]*(1-xvalues[r])^2)/(2*(1-theta[2]))
+  ls<-theta[1]<xvalues& xvalues<theta[2]
+  r<-which(ls)
+  f2<-alpha0*(xvalues[r]-theta[1])+(alpha[1]*theta[1])/2
+  cdf <- c(f1,f2,f3)
   return(cdf)
 }

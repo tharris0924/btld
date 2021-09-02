@@ -1,34 +1,29 @@
-#' rbtld
+#' Random number generator for the bimodal triangular linked distribution
 #'
-#' Random number generator for the bltd
+#' Using the icdf we generate random variates for the btld
 #'
 #' @param size size of sample to generate.
 #' @param alpha scale vector parameter
 #' @param theta Mode vector paramter
 #' @return The random variates from a bltd
-#'
+
+#' @importFrom stats runif
 #' @export
 #' @examples
 #' rbtld(size=1000, alpha = c(5,1), theta =c(0.3, 0.7))
-rbtld <- function (size, alpha,theta){
-  alpha1<-alpha[1]
-  alpha2<-alpha[2]
-  theta1<-theta[1]
-  theta2<-theta[2]
-  u<-runif(n=size)
-  alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)
-  u_df <- data.frame(unif=u)
 
-  # specify valid bounds
-  lower_df <- u_df[u_df$unif<=alpha1*theta1/2,]
-  middle_df<-u_df[(alpha1*theta1/2)<u_df$unif & u_df$unif<=(alpha1*theta1/2+alpha0*(theta2-theta1)),]
-  upper_df <- u_df[u_df$unif>(alpha1*theta1/2+alpha0*(theta2-theta1)),]
-
-  # generate values
-  lower_df<-sqrt((2*lower_df*theta1)/alpha1)
-  middle_df<-(middle_df-(alpha1*theta1)/2)/alpha0 + theta1
-  upper_df<-1-sqrt((2*(1-upper_df)*(1-theta2))/alpha2)
-
-  df <- c(lower_df,middle_df,upper_df)
-  return(df)
+rbtld <- function (size, alpha, theta){
+    u<-runif(size)
+    alpha0<-(1-(alpha[1]*theta[1]/2) -(alpha[2]*(1-theta[2]))/2)/(theta[2]-theta[1])
+    A<-(alpha[1]*theta[1]/2)
+    r<-which(u<A)
+    x1<-sqrt((2*theta[1]*u[r])/alpha[1])
+    C<-A+alpha0*(theta[2]-theta[1])
+    r<-which(u>C)
+    x3<-1-sqrt((2*(1-u[r])*(1-theta[2]))/alpha[2])
+    ls<-A<u & u<C
+    r<-which(ls)
+    x2<-theta[1]+(u[r]-A)/alpha0
+    x<-c(x1,x2,x3)
+  return(x)
 }

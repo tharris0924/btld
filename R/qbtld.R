@@ -14,23 +14,16 @@
 #' theta<-c(0.3,0.7)
 #' qbtld(x=runif(1000), alpha, theta)
 qbtld <- function (x, theta, alpha){
-  theta1<-theta[1]
-  theta2<-theta[2]
-  alpha1<-alpha[1]
-  alpha2<-alpha[2]
-  alpha0<-(1-alpha1*theta1/2 -alpha2*(1-theta2)/2)/(theta2-theta1)
-  u_df <- data.frame(x=x)
-
-  # specify valid bounds
-  lower_df <- u_df[u_df$x<=alpha1*theta1/2,]
-  middle_df<-u_df[(alpha1*theta1/2)<u_df$x & u_df$x<=(alpha1*theta1/2+alpha0*(theta2-theta1)),]
-  upper_df <- u_df[u_df$x>(alpha1*theta1/2+alpha0*(theta2-theta1)),]
-
-  # generate values
-  lower_df<-sqrt((2*lower_df*theta1)/alpha1)
-  middle_df<-(middle_df-(alpha1*theta1)/2)/alpha0 + theta1
-  upper_df<-1-sqrt((2*(1-upper_df)*(1-theta2))/alpha2)
-
-  df <- c(lower_df,middle_df,upper_df)
-  return(df)
+  alpha0<-(1-(alpha[1]*theta[1]/2) -(alpha[2]*(1-theta[2]))/2)/(theta[2]-theta[1])
+  A<-(alpha[1]*theta[1]/2)
+  r<-which(x<A)
+  q1<-sqrt((2*theta[1]*x[r])/alpha[1])
+  C<-A+alpha0*(theta[2]-theta[1])
+  r<-which(x>C)
+  q3<-1-sqrt((2*(1-x[r])*(1-theta[2]))/alpha[2])
+  ls<-A<x & x<C
+  r<-which(ls)
+  q2<-theta[1]+(x[r]-A)/alpha0
+  qs<-c(q1,q2,q3)
+  return(qs)
 }

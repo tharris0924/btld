@@ -2,7 +2,7 @@
 % Please edit documentation in R/rbtld.R
 \name{rbtld}
 \alias{rbtld}
-\title{rbtld}
+\title{Random number generator for the bimodal triangular linked distribution}
 \usage{
 rbtld(size, alpha, theta)
 }
@@ -17,7 +17,7 @@ rbtld(size, alpha, theta)
 The random variates from a bltd
 }
 \description{
-Random number generator for the bltd
+Using the icdf we generate random variates for the btld
 }
 \examples{
 rbtld(size=1000, alpha = c(5,1), theta =c(0.3, 0.7))
