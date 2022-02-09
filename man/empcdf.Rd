@@ -4,10 +4,10 @@
 \alias{empcdf}
 \title{empcdf}
 \usage{
-empcdf(dataframe)
+empcdf(df)
 }
 \arguments{
-\item{dataframe}{list of datapoints}
+\item{df}{list of datapoints}
 }
 \value{
 data.frame object with two columns: sorted values from input and ecdf

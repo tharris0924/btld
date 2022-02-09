@@ -4,10 +4,12 @@
 \alias{btld.params}
 \title{Determine the parameters of the btld}
 \usage{
-btld.params(x)
+btld.params(xs, normalize = F)
 }
 \arguments{
-\item{x}{input data}
+\item{xs}{input data}
+
+\item{normalize}{do we normalize?}
 }
 \value{
 dataframe containing the scales and modes
@@ -16,6 +18,7 @@ dataframe containing the scales and modes
 Using the various functions built in this package, this function calculates the mode and scale parameters for the btld.
 }
 \examples{
-x<-runif(1000,5,10)
-btld.params(x)
+library(mixtools)
+data(NOdata)
+btld.params(NOdata$NO, normalize=TRUE)
 }

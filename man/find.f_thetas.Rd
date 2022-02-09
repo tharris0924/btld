@@ -16,6 +16,6 @@ cdf values for the mode parameters
 Search through the ecdf to find values that are around the modes and calculate the average density around the modes.
 }
 \examples{
-x<-runif(1000,5,10)
+x<-runif(1000,0,1)
 find.f_thetas(x)
 }

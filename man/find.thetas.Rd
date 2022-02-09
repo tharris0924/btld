@@ -4,18 +4,18 @@
 \alias{find.thetas}
 \title{Determine modes of btld}
 \usage{
-find.thetas(x)
+find.thetas(xs)
 }
 \arguments{
-\item{x}{input data.}
+\item{xs}{input data.}
 }
 \value{
 modes
 }
 \description{
-Using binned values, calculate the local maxima of the KDEs from the histograms. Then determine the midpoints of these densities.
+Using knn_modeseeking, calculate the local maxima.
 }
 \examples{
-x<-runif(1000,5,10)
-findThetas(x)
+x<-runif(1000,0,1)
+find.thetas(x)
 }
