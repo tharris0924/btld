@@ -1,6 +1,6 @@
 #' Determine modes of btld
 #'
-#' Using knn_modeseeking, calculate the local maxima.
+#' Using kernel density estimation, calculate the local maxima i.e. the modes
 #'
 #' @param xs input data.
 #' @return modes
@@ -9,8 +9,8 @@
 #' @export
 #' @examples
 #' x<-runif(1000,0,1)
-#' find.thetas(x)
-find.thetas<-function(xs){
+#' findThetas(x)
+findThetas<-function(xs){
   freq<- hist(xs, include.lowest=TRUE, plot=FALSE, breaks = 10)
   density<-freq$density
   modeidxs<-which(diff(sign(diff(density)))==-2)+1

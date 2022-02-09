@@ -8,10 +8,10 @@
 #' @export
 #' @examples
 #' x<-runif(1000,0,1)
-#' find.f_thetas(x)
-find.f_thetas<-function(x){
+#' findFThetas(x)
+findFThetas<-function(x){
   # unit<-unit.normalize(x)
-  modes<-find.thetas(x)
+  modes<-findThetas(x)
   ecdf<-empcdf(x)
   rounded<-round(ecdf,digits=2)
   f_thet<-matrix(nrow=2,ncol=1)

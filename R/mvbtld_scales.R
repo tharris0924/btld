@@ -17,7 +17,7 @@ mvbtld_scales <- function (est_theta, F_thet){
   p<-nrow(est_theta)
   est<-matrix(nrow=p,ncol=ncol(est_theta))
   for(i in seq_len(p)){
-    est[i,]<-btld_scales(est_theta[i,], F_thet[i,])
+    est[i,]<-btldScales(est_theta[i,], F_thet[i,])
   }
   return(est)
 }
