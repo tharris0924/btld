@@ -5,7 +5,7 @@
 <!-- badges: end -->
 
 The goal of btld is to have functions to generate the pdfs, cdfs and icdfs of the triangular and bimodal triangular linked distributions (btld).
-These functions are used to generate the multivariate distribution which uses a Gaussian copula. Functions to do that may be included later. 
+These functions are used to generate the multivariate distribution which uses a Gaussian copula. Functionality to generate the multivariate distribution has been implemented. 
 
 ## Installation
 
