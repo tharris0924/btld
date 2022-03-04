@@ -21,13 +21,12 @@ This is a basic example which shows you how to generate values from a btld as we
 
 ``` r
 library(btld)
-## basic example code
 
 
-rvs <-rbltd(1000, theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3) # generate random variables from BTLD
+rvs <-rbtld(size=1000, alpha = c(5,1), theta =c(0.3, 0.7)) # generate random variables from BTLD
 # distribution)
 vals<-vals[order(vals)] # filter and order
-pdf <- dbtld(vals,  theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3) # determine pdf values
+pdf <- dbtld(runif(1000),  alpha = c(5,1), theta =c(0.3, 0.7)) # determine pdf values
 
 
 # plot histogram
@@ -41,25 +40,20 @@ legend(0,3,c("KDE", "PDF"),col = c("red","blue"),lty = 1)
 
 This example shows the calculation of goodness of fit for the btld taking values from the above example
 ```r
-cdf <- btld_cdf(vals,  theta1 = 0.3, theta2 = 0.8, alpha1 = 3, alpha2 =3,input = T)
+alpha<-c(5,1)
+theta<-c(0.3,0.7)
+cdf<-pbtld(runif(1000), alpha = alpha, theta =theta)
 n<-nrow(cdf)
-dens <- as.numeric(cdf$Denisty)
-sdens <- sort(dens)
-sdens
-sortedCDF <- sort(as.numeric(cdf$Density))
-i<-t(1:n)
-Dminus <- sdens-(i-1)/n
-Dplus <- i/n - sdens
-D <- max(c(Dminus,Dplus))
-D*sqrt(1000) >= 1.63 # if false then do not reject null
+ cdf <- sort(cdf)
 
+ks.test(rvs,"pbtld", alpha=alpha,theta=theta)
+goftest::cvm.test(rvs,"pbtld",alpha=alpha,theta=theta,estimated=TRUE)
 ecdf <- rep(1/nrow(cdf),nrow(cdf))
 ecdf<- cumsum(ecdf)
 plot(vals,sdens,type = "l", lty="dashed",col="Blue", main = "Generated CDF vs Emperical CDF", xlab = "X", ylab="Cumulative Density")
 par(new=T)
 plot(vals,ecdf, col="Red", type="l", ann = F, axes = F)
-lab<-paste0("Kolmogorov's D: ", num2str(D))
-text(x=0.1,y=1,labels =  lab, font = 3)
+
 
 legend(0.8, 0.1, c("Generated CDF", "Emperical CDF"), col = c("Blue", "Red"),
        lty = c("dashed", "solid"),
