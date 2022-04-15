@@ -4,6 +4,13 @@
   <component name="RMarkdownSettings">
     <option name="renderProfiles">
       <map>
+        <entry key="file://$PROJECT_DIR$/../../../../DataSpellProjects/ISCS/2020/Descriptive analysis template.Rmd">
+          <value>
+            <RMarkdownRenderProfile>
+              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/../../../../DataSpellProjects/ISCS/2020" />
+            </RMarkdownRenderProfile>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../CodingProjects/MVA880/Q2_tharris.rmd">
           <value>
             <RMarkdownRenderProfile>
