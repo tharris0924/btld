@@ -44,11 +44,11 @@ theta<-c(0.3,0.7)
 rvs <-rbtld(size=1000, alpha = alpha, theta =theta) 
 vals<-rvs[order(rvs)]
 cdf<-pbtld(vals, alpha = alpha, theta =theta)
-n<-nrow(cdf)
+n<-length(cdf)
 
 ks.test(rvs,"pbtld", alpha=alpha,theta=theta)
 goftest::cvm.test(rvs,"pbtld",alpha=alpha,theta=theta,estimated=TRUE)
-ecdf <- rep(1/nrow(cdf),nrow(cdf))
+ecdf <- rep(1/n,n)
 ecdf<- cumsum(ecdf)
 plot(vals,cdf,type = "l", lty="dashed",col="Blue", main = "Generated CDF vs Emperical CDF", xlab = "X", ylab="Cumulative Density")
 par(new=T)
