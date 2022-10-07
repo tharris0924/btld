@@ -1,6 +1,6 @@
 #' pbtld
 #'
-#' Cumulative density function for the BTLD
+#' Cumulative distribution function for the BTL distribution
 #'
 #' @param xvalues input values
 #' @param alpha scale vector parameter 1

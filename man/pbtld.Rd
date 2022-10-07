@@ -17,7 +17,7 @@ pbtld(xvalues, alpha, theta)
 Vector of cumulative probabilities from the BTLD
 }
 \description{
-Cumulative density function for the BTLD
+Cumulative distribution function for the BTL distribution
 }
 \examples{
 pbtld(runif(1000), alpha = c(5,1), theta =c(0.3, 0.7))
