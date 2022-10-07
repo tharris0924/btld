@@ -10,10 +10,10 @@
 #' @export
 #' @examples
 #' gmm<-mixtools::normalmixEM(runif(1000))
-#' aic(gmm$loglik,3)
+#' bic(gmm$loglik,3,1000)
 
 
 
-bic_bt<-function(loglik,k,n){
+bic<-function(loglik,k,n){
   return((-2*loglik)+(k*log(n)))
 }
